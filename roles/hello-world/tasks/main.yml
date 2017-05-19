@@ -20,17 +20,19 @@
 
 - name: Create site root folder
   file:
-    path: /opt/hello-world
+    path: "{{ hello_world_root }}"
     state: directory
+    owner: www-data
+    group: www-data
     mode: 0755
 
 - name: Deploy index.html from template
   template:
     src: index.html.j2
-    dest: /opt/hello-world/index.html
-    owner: root
-    group: root
-    mode: 0644
+    dest: "{{ hello_world_root }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: 0755
 
 - name: Restart Nginx
   service:
