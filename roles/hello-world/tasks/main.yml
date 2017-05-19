@@ -32,7 +32,7 @@
     dest: "{{ hello_world_root }}/index.html"
     owner: www-data
     group: www-data
-    mode: 0755
+    mode: 0644
 
 - name: Restart Nginx
   service:
