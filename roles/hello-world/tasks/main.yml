@@ -24,6 +24,15 @@
     state: directory
     mode: 0755
 
-#- name: Deploy index.html from template
+- name: Deploy index.html from template
+  template:
+    src: index.html.j2
+    dest: /opt/hello-world/index.html
+    owner: root
+    group: root
+    mode: 0644
 
-#- name: Restart Nginx
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
