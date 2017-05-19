@@ -4,3 +4,8 @@
 - name: Debug Hello-World
   debug:
     msg: "Hello {{ hello_world_msg }}"
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
